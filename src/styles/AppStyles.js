@@ -15,7 +15,11 @@ export const AppStyles = styled.div`
     }
 
     nav {
+        display: flex;
+        align-items: center;
+        gap: 50px;
         margin-bottom: 30px;
+        padding-left: 10px;
     }
 
     .mainButton {

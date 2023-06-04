@@ -13,6 +13,9 @@ const App = () => {
             <MainAlert/>
             <AppStyles>
                 <nav>
+                    <a href='/'>
+                        <img width='50' src={`${process.env.PUBLIC_URL}/deliveryLogo.png`} alt='logo'/>
+                    </a>
                     <ul className='navList'>
                         <li className={`button textHover ${pathname === '/' ? 'active' : ''}`}>
                             <Link to='/'>Shop</Link>

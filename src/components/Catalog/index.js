@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCart } from '../../store/actions/cartActions';
 import { getShops } from '../../store/actions/shopsAction';
 import { CatalogStyles } from '../../styles/CatalogStyles';
 import ProductsList from './ProductsList';
@@ -22,6 +21,7 @@ const Catalog = () => {
 
     return (
         <CatalogStyles>
+            <h1>Catalog Page</h1>
             <ShopsList shops={items} {...{cartItems, isLoading, selectedShop, setSelected}}/>
             <ProductsList isShopsLoading={isLoading} {...{products}}/>
         </CatalogStyles>

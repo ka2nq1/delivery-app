@@ -49,6 +49,7 @@ const Cart = () => {
         <CartStyles>
             {!!items.length ?
                 <>
+                    <h1>Cart Page</h1>
                     <div className='topWrap'>
                         <ContactsForm {...{items, order, setOrder}}/>
                         <ItemsList {...{items}}/>
