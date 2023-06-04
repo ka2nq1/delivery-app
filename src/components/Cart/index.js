@@ -14,7 +14,7 @@ const Cart = () => {
     const totalSum = items?.reduce((acc, current) => acc + (current.product.price * current.product.amount),0);
 
     const [order, setOrder] = useState({
-        id: window.localStorage.getItem('sessionID'),
+        id: localStorage.getItem('sessionID'),
         products: [],
         name: '',
         email: '',

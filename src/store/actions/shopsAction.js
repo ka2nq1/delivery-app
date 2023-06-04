@@ -7,8 +7,8 @@ export const getShops = () => (
         getShopsItems()
             .then(response => {
                 dispatch(setShops(response.data.shops));
-                if (!window.localStorage.getItem('sessionID')) {
-                    window.localStorage.setItem('sessionID', response.data.sessionId);
+                if (!localStorage.getItem('sessionID')) {
+                    localStorage.setItem('sessionID', response.data.sessionId);
                 }
                 dispatch(setIsLoading(false));
                 return response;

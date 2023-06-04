@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const path = 'http://localhost:8080';
 const path = 'https://delivery-node-js.herokuapp.com';
-const sessionId = window.localStorage.getItem('sessionID');
+const sessionId = localStorage.getItem('sessionID');
 
 export const getShopsItems = () => {
     return axios.get(`${path}/api/shops`);
