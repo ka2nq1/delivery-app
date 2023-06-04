@@ -5,7 +5,7 @@ const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const cors = require('cors');
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://aleksTVP:asd123@cluster0.inrmuqx.mongodb.net/delivery-app?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(error => console.error('Error connecting to MongoDB', error));
 
@@ -17,7 +17,7 @@ app.use('/api/cart', cartRoutes);
 app.use('/api/shops', shopRoutes);
 app.use('/api/orders', orderRoutes);
 
-const port = process.env.PORT || 8080;
+const port = 8080;
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
