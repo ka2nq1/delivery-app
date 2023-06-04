@@ -21,7 +21,7 @@ const Item = ({item}) => {
             <img width='150' src={item.product.image} alt={item.product.name}/>
             <div className='priceWrap'>
                 <p>{item.product.name}</p>
-                <p>Price: {item.product.price * amount}.00 UAH</p>
+                <p>Price: {(item.product.price * amount).toFixed(2)} UAH</p>
             </div>
             <div>
                 <input 

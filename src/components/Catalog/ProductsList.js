@@ -28,7 +28,7 @@ const ProductsList = ({products, isShopsLoading}) => {
                             <img src={product.image} alt={product.name}/>
                             <div>
                                 <h3>{product.name}</h3>
-                                <p>{product.price}.00 UAH</p>
+                                <p>{product.price.toFixed(2)} UAH</p>
                                 <button onClick={e => addToCartHandler(product)}>Add to Cart</button>
                             </div>
                         </li>

@@ -56,7 +56,7 @@ const Cart = () => {
                     <div className='resultWrap'>
                         <button disabled={isLoading} onClick={clearCartHandler}>Clear the basket</button>
                         <div>
-                            <h3>Order sum: {totalSum}.00 UAH</h3>
+                            <h3>Order sum: {totalSum.toFixed(2)} UAH</h3>
                             <button 
                                 disabled={isLoading} 
                                 onClick={e => orderHandler()}
