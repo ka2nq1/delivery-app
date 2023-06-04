@@ -48,6 +48,9 @@ export const CatalogStyles = styled.div`
         padding: 24px;
         @media (max-width: 800px) {
             width: 100%;
+        }
+        @media (min-width: 1475px) {
+            width: calc(33% - 3px);
         } 
 
         & img {
