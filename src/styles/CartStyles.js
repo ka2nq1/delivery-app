@@ -43,6 +43,10 @@ export const CartStyles = styled.div`
             display: flex;
             gap: 40px;
             align-items: center;
+            @media (max-width: 800px) {
+                flex-direction: column;
+                gap: 20px;
+            }
             & > h3 {
                 font-size: 22px;
             }
