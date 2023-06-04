@@ -1,5 +1,5 @@
 import { addToCart, getCartItems, removeAll, removeOne, updateOne } from "../../api";
-import { SET_CART, SET_IS_LOADING } from "../../constants/CartConstants";
+import { SET_CART, SET_IS_CART_LOADING } from "../../constants/CartConstants";
 import { success } from "./alertActions";
 
 export const getCart = () => (
@@ -67,4 +67,4 @@ export const updateCartItem = (itemId, amount) => (
 );
 
 const setCart = (payload) => ({ type: SET_CART, payload });
-const setIsLoading = (payload) => ({ type: SET_IS_LOADING, payload });
+const setIsLoading = (payload) => ({ type: SET_IS_CART_LOADING, payload });

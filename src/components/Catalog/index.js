@@ -11,13 +11,11 @@ const Catalog = () => {
     const {items, isLoading} = useSelector(state => state.shops);
     const {cart} = useSelector(state => state);
     const cartItems = cart.items;
-
     const [selected, setSelected] = useState("McDonald's");
     const selectedShop = !!cartItems.length ? cartItems[0].product.shop : selected;
 
     useEffect(() => {
         dispatch(getShops());
-        dispatch(getCart());
     }, [dispatch])
 
     const products = items.filter(e => e.name === selectedShop).flatMap(e => e.products);

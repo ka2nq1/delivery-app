@@ -47,5 +47,8 @@ export const AppStyles = styled.div`
             font-size: 20px;
             line-height: 24px;
         }
+        & .active {
+            color: var(--accent-color);
+        }
     }
 `;

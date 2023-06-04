@@ -5,7 +5,7 @@ import { addCartItem } from '../../store/actions/cartActions';
 import { Preloader } from '../../styles/Preloader';
 
 const ProductsList = ({products, isShopsLoading}) => {
-    const {items} = useSelector(state => state.cart);
+    const {items, isLoading} = useSelector(state => state.cart);
     const dispatch = useDispatch();
 
     const addToCartHandler = (product) => {
@@ -29,7 +29,7 @@ const ProductsList = ({products, isShopsLoading}) => {
                             <div>
                                 <h3>{product.name}</h3>
                                 <p>{product.price.toFixed(2)} UAH</p>
-                                <button onClick={e => addToCartHandler(product)}>Add to Cart</button>
+                                <button disabled={isLoading} onClick={e => addToCartHandler(product)}>Add to Cart</button>
                             </div>
                         </li>
                     ))}
