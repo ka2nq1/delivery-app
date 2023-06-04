@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getCart } from '../../store/actions/cartActions';
 import { getShops } from '../../store/actions/shopsAction';
 import { CatalogStyles } from '../../styles/CatalogStyles';
 import ProductsList from './ProductsList';
@@ -15,6 +16,7 @@ const Catalog = () => {
 
     useEffect(() => {
         dispatch(getShops());
+        dispatch(getCart());
     }, [dispatch])
 
     const products = items.filter(e => e.name === selectedShop).flatMap(e => e.products);
