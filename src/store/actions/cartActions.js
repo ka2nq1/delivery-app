@@ -46,6 +46,9 @@ export const addCartItem = (product) => (
         addToCart(product)
             .then(response => {
                 dispatch(setCart(response.data));
+                if (!localStorage.getItem('sessionID') && response.data.length > 0) {
+                    localStorage.setItem('sessionID', response.data[0].sessionId);
+                }
                 dispatch(setIsLoading(false));
                 dispatch(success(`${product.name} was added!`))
                 return response;

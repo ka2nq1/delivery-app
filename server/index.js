@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const shopRoutes = require('./routes/shopRoutes');
@@ -17,8 +18,8 @@ app.use('/api/cart', cartRoutes);
 app.use('/api/shops', shopRoutes);
 app.use('/api/orders', orderRoutes);
 
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
