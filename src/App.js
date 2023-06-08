@@ -1,31 +1,27 @@
-import React from 'react';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes} from 'react-router-dom';
 import Cart from './components/Cart';
 import Catalog from './components/Catalog';
 import MainAlert from './components/MainAlert';
+import Navbar from './components/Navbar';
+import { getCart } from './store/actions/cartActions';
+import { getShops } from './store/actions/shopsAction';
 import { AppStyles } from './styles/AppStyles';
 
 const App = () => {
-    const {pathname} = useLocation();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getShops());
+        dispatch(getCart());
+    }, [dispatch])
 
     return (
         <>
             <MainAlert/>
             <AppStyles>
-                <nav>
-                    <a href='/'>
-                        <img width='50' src={`${process.env.PUBLIC_URL}/deliveryLogo.png`} alt='logo'/>
-                    </a>
-                    <ul className='navList'>
-                        <li className={`button textHover ${pathname === '/' ? 'active' : ''}`}>
-                            <Link to='/'>Shop</Link>
-                        </li>
-                        <li className='divider'></li>
-                        <li className={`button textHover ${pathname === '/cart' ? 'active' : ''}`}>
-                            <Link to='/cart'>Cart</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Navbar/>
                 <Routes>
                     <Route path="/" element={<Catalog/>}/>
                     <Route path="/cart" element={<Cart/>}/>

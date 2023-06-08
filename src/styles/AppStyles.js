@@ -50,9 +50,30 @@ export const AppStyles = styled.div`
         & li {
             font-size: 20px;
             line-height: 24px;
+            position: relative;
         }
         & .active {
             color: var(--accent-color);
         }
+    }
+    
+    .basketCount {
+        border-radius: 10px;
+        background-color: rgb(239, 241, 243);
+        color: var(--accent-color);
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+        padding: 0px 7px;
+        min-width: 27px;
+        position: absolute;
+        width: fit-content;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        top: -13px;
+        right: -22px;
     }
 `;

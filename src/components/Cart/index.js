@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeOrder } from '../../api';
-import { clearCart, getCart } from '../../store/actions/cartActions';
+import { clearCart } from '../../store/actions/cartActions';
 import { error, success, warning } from '../../store/actions/alertActions';
 import { CartStyles } from '../../styles/CartStyles';
 import ContactsForm from './ContactsForm';
@@ -24,10 +24,6 @@ const Cart = () => {
     });
 
     const isOrderReady = order.name && order.email && order.phone && order.address;
-
-    useEffect(() => {
-        dispatch(getCart());
-    }, [dispatch])
 
     const orderHandler = () => {
         const products = items.flatMap(item => item.product);

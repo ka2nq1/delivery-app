@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { warning } from '../../store/actions/alertActions';
-import { addCartItem } from '../../store/actions/cartActions';
+import { success } from '../../store/actions/alertActions';
+import { addCartItem, updateCartItem } from '../../store/actions/cartActions';
 import { Preloader } from '../../styles/Preloader';
 
 const ProductsList = ({products, isShopsLoading}) => {
@@ -9,11 +9,12 @@ const ProductsList = ({products, isShopsLoading}) => {
     const dispatch = useDispatch();
 
     const addToCartHandler = (product) => {
-        const isAlreadyAdded = !!items.find(e => e.id === product.id);
-        if (isAlreadyAdded) {
-            dispatch(warning('Already added!'))
+        const cartItem = items.find(e => e.id === product.id);
+        if (cartItem) {
+            dispatch(updateCartItem(cartItem.id, cartItem.product.amount + 1));
+            dispatch(success(`Amount of ${cartItem.product.name} in cart changed from ${cartItem.product.amount} to ${cartItem.product.amount + 1}`))
         } else {
-            dispatch(addCartItem(product))
+            dispatch(addCartItem(product));
         }
     }
 

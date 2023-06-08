@@ -27,10 +27,10 @@ const Item = ({item}) => {
                 <input 
                     id='amount' 
                     type="number" 
-                    min={1} 
-                    max={9}
+                    min={1}
                     value={amount} 
-                    onChange={e => setAmount(+e.target.value)}
+                    disabled={isLoading}
+                    onChange={e => setAmount(e.target.value)}
                     onBlur={e => onBlurHandler(item.id, amount)}
                 />
                 <button disabled={isLoading} onClick={e => removeItemHandler(item.id)}>Remove</button>

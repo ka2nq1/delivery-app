@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCart } from '../../store/actions/cartActions';
-import { getShops } from '../../store/actions/shopsAction';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { CatalogStyles } from '../../styles/CatalogStyles';
 import ProductsList from './ProductsList';
 import ShopsList from './ShopsList';
 
 const Catalog = () => {
-    const dispatch = useDispatch();
     const {items, isLoading} = useSelector(state => state.shops);
     const {cart} = useSelector(state => state);
     const cartItems = cart.items;
     const [selected, setSelected] = useState("McDonald's");
     const selectedShop = !!cartItems.length ? cartItems[0].product.shop : selected;
-
-    useEffect(() => {
-        dispatch(getShops());
-        dispatch(getCart());
-    }, [dispatch])
 
     const products = items.filter(e => e.name === selectedShop).flatMap(e => e.products);
 
